@@ -10,14 +10,15 @@ import { AuthError } from 'next-auth';
 
 const sql = postgres(process.env.POSTGRES_URL!, {ssl: 'require'});
 
+
 const FormSchema = z.object({
     customerId: z.string({
-    invalid_type_error: 'Please select a customer.',
+    message: 'Please select a customer.',
   }).min(1, { message: 'Please select a customer.' }),
     id:z.string(),
     amount: z.coerce.number().gt(0,{ message: 'Please enter an amount greater than $0.' }),
     status: z.enum(['pending', 'paid'],  {
-    invalid_type_error: 'Please select an invoice status.',
+    message: 'Please select an invoice status.',
   }),
     date: z.string(),
 })
