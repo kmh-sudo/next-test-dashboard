@@ -26,10 +26,11 @@ export function UpdateInvoice({ id }: { id: string }) {
 }
 
 export function DeleteInvoice({ id }: { id: string }) {
-
   const deleteInvoiceWithId = deleteInvoice.bind(null, id);
 
-  const handleDelete = async (formData: FormData) => { await deleteInvoiceWithId(); }
+  const handleDelete = async (formData: FormData) => {
+    await deleteInvoiceWithId();
+  };
 
   return (
     <form action={handleDelete}>
